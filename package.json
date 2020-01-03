@@ -8,9 +8,22 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
+    "test:pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
+    "test:pact:publish": "node publish.js",
+    "dev": "API_ENDPOINT='http://localhost:8080' nodemon app.js",
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact": "^9.6.0",
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2",
+    "nodemon": "^2.0.2"
   }
 }
