@@ -3,7 +3,7 @@ const { Pact, Matchers } = require('@pact-foundation/pact');
 const { getStuff } = require('../apiClient');
 
 const provider = new Pact({
-    consumer: 'Animal Visualiser',
+    consumer: 'Service B',
     provider: 'Animal API',
     port: 2345,
     log: path.resolve(process.cwd(), 'logs', 'pact.log'),
