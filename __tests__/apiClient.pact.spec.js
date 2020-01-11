@@ -4,7 +4,7 @@ const { getFeedingInstructions } = require('../apiClient');
 
 const provider = new Pact({
     consumer: 'Service B',
-    provider: 'Animal API',
+    provider: 'Service C',
     port: 2345,
     log: path.resolve(process.cwd(), 'logs', 'pact.log'),
     dir: path.resolve(process.cwd(), 'pacts'),
@@ -12,7 +12,11 @@ const provider = new Pact({
     spec: 2
 });
 
-describe('Contract with Animal API', () => {
+describe('Contract with Service C', () => {
+
+    beforeAll(() => {
+        process.env.API_ENDPOINT = 'http://localhost:' + 2345;
+    });
 
     describe('when a call to get animals is made', () => {
 
@@ -26,7 +30,11 @@ describe('Contract with Animal API', () => {
                 willRespondWith: {
                     body: Matchers.eachLike({
                         name: "Joy",
-                        kind: "hedgehog",
+                        foodSchedule: {
+                            morning: "Some insects. 10 worms. 1/4 apple",
+                            lunch: "Some insects. 10 worms. 1/4 apple",
+                            evening: "Some insects. 10 worms. 1/4 apple"
+                        },
                     },
                             {
                                 min: 3
@@ -43,10 +51,10 @@ describe('Contract with Animal API', () => {
         });
 
         it('will receive a list of animals with pictures', () => {
-            return expect(getFeedingInstructions()).resolves.toIncludeSameMembers([
-                expect.toContainAllKeys(['name','kind']),
-                expect.toContainAllKeys(['name','kind']),
-                expect.toContainAllKeys(['name','kind']),
+            return expect(getFeedingInstructions('morning')).resolves.toIncludeSameMembers([
+                expect.toContainAllKeys(['name', 'food']),
+                expect.toContainAllKeys(['name','food']),
+                expect.toContainAllKeys(['name','food']),
             ]
             );
         });

@@ -15,6 +15,7 @@ function toFeedingInstructions(animal, timeOfDay) {
 }
 
 function getFeedingInstructions(timeOfDay) {
+    console.log('url', API_URL);
     return request(options)
             .then((animals) => animals.map((animal) => toFeedingInstructions(animal, timeOfDay)))
             .catch(`Failed to fetch stuff from ${API_URL}`)
