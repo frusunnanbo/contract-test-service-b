@@ -1,9 +1,10 @@
 const express = require('express');
 const expressHbs = require('express-handlebars');
+const moment = require('moment');
 
-const { getStuff } = require('./apiClient');
+const { getFeedingInstructions } = require('./apiClient');
 
-const port = process.env.PORT || 3002
+const port = process.env.PORT || 3002;
 
 const app = express();
 
@@ -15,11 +16,11 @@ app.get('/', async (request, response) => {
     response.render('animals',
             {
                 layout: false,
-                animals: await getStuff()
+                animals: await getFeedingInstructions(getTimeOfDay(request))
             });
 });
 
-app.get('/stuff', (request, response) => getStuff()
+app.get('/feedingInstructions', (request, response) => getFeedingInstructions(getTimeOfDay(request))
         .then((stuff) => response
                 .json(stuff))
         .catch((err) =>
@@ -27,3 +28,19 @@ app.get('/stuff', (request, response) => getStuff()
                 .send(`failed to get stuff: ${err.stack}`)));
 
 app.listen(port, console.log(`Listening on ${port}`));
+
+function todayAt(hour) {
+    return moment().hour(hour).startOf('hour');
+}
+
+function getTimeOfDay(request) {
+    if (request.query.timeOfDay) {
+        return request.query.timeOfDay;
+    } else if (moment().isBefore(todayAt(7))) {
+        return 'morning';
+    } else if (moment().isBefore(todayAt(12))) {
+        return 'lunch';
+    } else {
+        return 'evening';
+    }
+}

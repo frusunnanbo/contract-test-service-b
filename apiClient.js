@@ -7,11 +7,19 @@ const options = {
     json: true
 };
 
-function getStuff() {
+function toFeedingInstructions(animal, timeOfDay) {
+    return {
+      name: animal.name,
+      food: animal.foodSchedule[timeOfDay]
+    };
+}
+
+function getFeedingInstructions(timeOfDay) {
     return request(options)
+            .then((animals) => animals.map((animal) => toFeedingInstructions(animal, timeOfDay)))
             .catch(`Failed to fetch stuff from ${API_URL}`)
 }
 
 module.exports = {
-  getStuff
+  getFeedingInstructions: getFeedingInstructions
 };
