@@ -20,6 +20,9 @@
         "body": [
           {
             "name": "Joy",
+            "image": {
+              "path": "/images/joy.jpg"
+            },
             "foodSchedule": {
               "morning": "Some insects. 10 worms. 1/4 apple",
               "lunch": "Some insects. 10 worms. 1/4 apple",
@@ -28,6 +31,9 @@
           },
           {
             "name": "Joy",
+            "image": {
+              "path": "/images/joy.jpg"
+            },
             "foodSchedule": {
               "morning": "Some insects. 10 worms. 1/4 apple",
               "lunch": "Some insects. 10 worms. 1/4 apple",
@@ -36,6 +42,9 @@
           },
           {
             "name": "Joy",
+            "image": {
+              "path": "/images/joy.jpg"
+            },
             "foodSchedule": {
               "morning": "Some insects. 10 worms. 1/4 apple",
               "lunch": "Some insects. 10 worms. 1/4 apple",

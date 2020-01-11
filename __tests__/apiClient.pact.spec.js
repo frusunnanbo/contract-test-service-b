@@ -30,6 +30,9 @@ describe('Contract with Service C', () => {
                 willRespondWith: {
                     body: Matchers.eachLike({
                         name: "Joy",
+                        image: {
+                            path: '/images/joy.jpg'
+                        },
                         foodSchedule: {
                             morning: "Some insects. 10 worms. 1/4 apple",
                             lunch: "Some insects. 10 worms. 1/4 apple",
@@ -52,9 +55,9 @@ describe('Contract with Service C', () => {
 
         it('will receive a list of animals with pictures', () => {
             return expect(getFeedingInstructions('morning')).resolves.toIncludeSameMembers([
-                expect.toContainAllKeys(['name', 'food']),
-                expect.toContainAllKeys(['name','food']),
-                expect.toContainAllKeys(['name','food']),
+                expect.toContainAllKeys(['name', 'food', 'image']),
+                expect.toContainAllKeys(['name','food', 'image']),
+                expect.toContainAllKeys(['name','food', 'image']),
             ]
             );
         });
