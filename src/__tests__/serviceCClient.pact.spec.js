@@ -29,14 +29,14 @@ describe('Contract with Service C', () => {
                 },
                 willRespondWith: {
                     body: Matchers.eachLike({
-                        name: "Joy",
+                        name: 'Joy',
                         image: {
                             path: '/images/joy.jpg'
                         },
                         foodSchedule: {
-                            morning: "Some insects. 10 worms. 1/4 apple",
-                            lunch: "Some insects. 10 worms. 1/4 apple",
-                            evening: "Some insects. 10 worms. 1/4 apple"
+                            morning: 'Some insects. 10 worms. 1/4 apple',
+                            lunch: 'Some insects. 10 worms. 1/4 apple',
+                            evening: 'Some insects. 10 worms. 1/4 apple'
                         },
                     },
                             {
