@@ -11,8 +11,8 @@
     "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
     "test:pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
     "test:pact:publish": "node publish.js",
-    "dev": "DEBUG=service-b* nodemon app.js",
-    "start": "DEBUG=service-b* node app.js"
+    "dev": "DEBUG=service-b* nodemon src/app.js",
+    "start": "DEBUG=service-b* node src/app.js"
   },
   "dependencies": {
     "debug": "^4.1.1",
