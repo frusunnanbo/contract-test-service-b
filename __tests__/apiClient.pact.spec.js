@@ -24,7 +24,7 @@ describe('Contract with Service C', () => {
             const interaction = {
                 uponReceiving: 'a request for animals',
                 withRequest: {
-                    path: '/animals',
+                    path: '/',
                     method: 'GET',
                 },
                 willRespondWith: {
