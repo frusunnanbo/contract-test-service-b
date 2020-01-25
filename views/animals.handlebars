@@ -13,16 +13,17 @@
 
 <body>
 <div class="container">
+    <h1 class="mt-5 mb-4">Next feeding: {{nextFeedingTime}}</h1>
     <div class="card-deck">
         {{#each animals}}
-            <div class="col-3">
+            <div class="col-4">
                 <div class="card m-2" id="animal-{{@index}}">
                     <img src="{{image}}" class="card-img-top" alt="a picture of {{name}}"/>
                     <div class="card-body">
                         <h5 class="card-title">
                             {{name}}
                         </h5>
-                        <p class="card-text">Feed with: {{food}}</p>
+                        <p class="card-text"><b>Feed with:</b> {{food}}</p>
                     </div>
                 </div>
             </div>

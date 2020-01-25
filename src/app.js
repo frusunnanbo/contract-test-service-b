@@ -17,6 +17,7 @@ app.get('/', async (request, response) => {
     response.render('animals',
             {
                 layout: false,
+                nextFeedingTime: getTimeOfDay(request),
                 animals: await getFeedingInstructions(getTimeOfDay(request))
             });
 });
@@ -41,7 +42,9 @@ function getTimeOfDay(request) {
         return 'morning';
     } else if (moment().isBefore(todayAt(12))) {
         return 'lunch';
-    } else {
+    } else if (moment().isBefore(todayAt(17))) {
         return 'evening';
+    } else {
+        return 'morning';
     }
 }
