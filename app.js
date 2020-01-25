@@ -1,5 +1,6 @@
 const express = require('express');
 const expressHbs = require('express-handlebars');
+const log = require('debug')('service-b:app');
 const moment = require('moment');
 
 const { getFeedingInstructions } = require('./serviceCClient');
@@ -27,7 +28,7 @@ app.get('/feedingInstructions', (request, response) => getFeedingInstructions(ge
                 response.status(500)
                 .send(`failed to get stuff: ${err.stack}`)));
 
-app.listen(port, console.log(`Listening on ${port}`));
+app.listen(port, log(`Listening on ${port}`));
 
 function todayAt(hour) {
     return moment().hour(hour).startOf('hour');

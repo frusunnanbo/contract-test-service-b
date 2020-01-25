@@ -1,5 +1,5 @@
 {
-  "name": "service1",
+  "name": "service-b",
   "version": "1.0.0",
   "description": "Contract test demo client.",
   "main": "app.js",
@@ -11,10 +11,11 @@
     "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
     "test:pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
     "test:pact:publish": "node publish.js",
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "DEBUG=service-b* nodemon app.js",
+    "start": "DEBUG=service-b* node app.js"
   },
   "dependencies": {
+    "debug": "^4.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "moment": "^2.24.0",
