@@ -2,7 +2,7 @@ const express = require('express');
 const expressHbs = require('express-handlebars');
 const moment = require('moment');
 
-const { getFeedingInstructions } = require('./apiClient');
+const { getFeedingInstructions } = require('./serviceCClient');
 
 const port = process.env.PORT || 3002;
 
