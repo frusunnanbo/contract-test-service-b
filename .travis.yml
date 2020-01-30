@@ -4,6 +4,9 @@ script:
   - yarn pact:test
   - yarn pact:publish
 
+before_deploy:
+  - yarn pact:can-i-deploy
+
 deploy:
   on:
     all_branches: true
