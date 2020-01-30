@@ -7,14 +7,10 @@ const options = {
     json: true
 };
 
-function getImagePath(animal) {
-    return animal.imagePath || animal.image.path;
-}
-
 function toFeedingInstructions(animal, timeOfDay) {
     return {
       name: animal.name,
-      image: process.env.API_ENDPOINT + getImagePath(animal),
+      image: process.env.API_ENDPOINT + animal.image.path,
       food: animal.foodSchedule[timeOfDay]
     };
 }
