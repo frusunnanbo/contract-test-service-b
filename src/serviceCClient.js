@@ -10,7 +10,7 @@ const options = {
 function toFeedingInstructions(animal, timeOfDay) {
     return {
       name: animal.name,
-      image: process.env.API_ENDPOINT + animal.image.path,
+      image: process.env.API_ENDPOINT + animal.imagePath,
       food: animal.foodSchedule[timeOfDay]
     };
 }
