@@ -63,7 +63,7 @@ describe('Contract with Service C', () => {
                 ['name', expect.any(String)],
                 ['image', expect.any(String)],
                 ['food', expect.any(String)]]);
-            return expect(getFeedingInstructions('morning'))
+            return expect(getFeedingInstructions('lunch'))
                     .resolves
                     .toIncludeAllMembers([serviceBAnimalMatcher, serviceBAnimalMatcher, serviceBAnimalMatcher]);
         });
@@ -73,7 +73,7 @@ describe('Contract with Service C', () => {
                 ['name', expect.any(String)],
                 ['image', expect.any(String)],
                 ['food', expect.any(String)]]);
-            return expect(getFeedingInstructions('morning'))
+            return expect(getFeedingInstructions('evening'))
                     .resolves
                     .toIncludeAllMembers([serviceBAnimalMatcher, serviceBAnimalMatcher, serviceBAnimalMatcher]);
         });
