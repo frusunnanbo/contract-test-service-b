@@ -30,9 +30,7 @@ describe('Contract with Service C', () => {
                 willRespondWith: {
                     body: eachLike({
                         name: like('Hufflepuff'),
-                        image: {
-                            path: like('/path/to/image')
-                        },
+                        imagePath: like('/path/to/image'),
                         foodSchedule: like({
                             morning: 'some insects',
                             lunch: 'worms!',
